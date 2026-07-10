@@ -32,11 +32,11 @@ def health():
 
 @app.post("/extract")
 def extract(data: ExtractRequest):
-    return extract_video(data.url)
+    return extract_video(str(data.url))
 
 @app.post("/download")
 def download(data: DownloadRequest):
-    return get_download_url(data.url, data.format)
+    return get_download_url(str(data.url), data.format)
 
 @app.get("/version")
 def version():
